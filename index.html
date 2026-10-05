@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CaliSon Café-Bar | Menú</title>
+<style>
+:root{--bg:#071014;--card:#0c171c;--pink:#ff2aa1;--cyan:#19e8ee;--yellow:#ffd21f;--green:#79ff32;--text:#f7f7f7;--muted:#b8c5c8}
+*{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top,#142b32 0,#071014 35%,#030708 100%);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:760px;margin:auto;padding:18px 14px 50px}
+header{text-align:center;padding:10px 0 18px}.logo{width:min(330px,86vw);border-radius:22px;box-shadow:0 0 28px #ff2aa155}
+.lang{display:flex;gap:10px;justify-content:center;position:sticky;top:8px;z-index:5;margin:10px 0 20px}
+.lang button{border:1px solid #ffffff35;background:#081216e8;color:white;padding:11px 20px;border-radius:999px;font-weight:800;backdrop-filter:blur(8px)}
+.lang button.active{border-color:var(--cyan);box-shadow:0 0 14px #19e8ee66;color:var(--cyan)}
+.card{background:linear-gradient(180deg,#0d181de8,#071013f2);border:1px solid #ffffff20;border-radius:18px;margin:13px 0;padding:16px;box-shadow:0 8px 30px #0008}
+.card:nth-of-type(4n+1){border-color:#ffd21f99}.card:nth-of-type(4n+2){border-color:#ff2aa199}.card:nth-of-type(4n+3){border-color:#19e8ee99}.card:nth-of-type(4n){border-color:#79ff3299}
+h2{margin:0 0 12px;font-size:1.45rem;color:var(--yellow);text-transform:uppercase}.card:nth-of-type(4n+2) h2{color:var(--pink)}.card:nth-of-type(4n+3) h2{color:var(--cyan)}.card:nth-of-type(4n) h2{color:var(--green)}
+.item{display:grid;grid-template-columns:1fr auto;gap:12px;padding:7px 0;border-bottom:1px solid #ffffff12}.item:last-child{border-bottom:0}.price{font-weight:800;white-space:nowrap}.special{color:#ffd21f;font-weight:800}
+footer{text-align:center;color:var(--muted);padding-top:24px;font-size:.9rem}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+<img class="logo" src="logo-calison.jpg" alt="CaliSon Café-Bar">
+</header>
+<div class="lang">
+<button id="esBtn" class="active" onclick="setLang('es')">🇪🇸 Español</button>
+<button id="nlBtn" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+</div>
+<main id="menu"></main>
+<footer>CaliSon Café-Bar</footer>
+</div>
+<script>
+const data={
+es:[
+["🍺 Cervezas",[["Amstel","€4,00"],["Bud","€4,00"],["Corona","€5,50"],["Desperados","€5,50"],["Heineken botella","€4,50"],["Heineken tap / barril","€4,00"],["Jarra de cerveza","€15,00"],["Jirafa","€40,00"],["Michelada","€6,00"],["Cubo 5 Corona","€25,00"],["Cubo 5 Heineken","€20,00"]]],
+["🍸 Cócteles",[["CaliSon · Especialidad de la casa","€11,00","special"],["Amaretto Sour","€11,00"],["Gin Tonic","€12,00"],["Gin Tonic de fresa","€12,00"],["Margarita Blue","€13,00"],["Pornstar Martini","€13,00"],["Michelada de mango endiablada","€12,00"],["Michelada de frutos rojos","€12,00"]]],
+["🥃 Copas",[["Baileys","€10,00"],["Buchanan's","€15,00"],["Old Parr","€15,00"],["Black Label","€10,00"],["Malibu + refresco","€10,00"],["Ron Viejo de Caldas + cola/refresco","€12,00"],["Black Label + cola","€12,00"],["Red Label + cola","€10,00"],["Vodka + refresco","€12,00"],["Vodka + Red Bull","€15,00"]]],
+["🥃 Shots",[["Aguardiente","€4,50"],["Aguardiente Amarillo","€4,50"],["Tequila","€5,00"],["Shot Ron Viejo de Caldas","€6,00"],["Vodka","€6,00"],["Jenever","€6,00"],["Whisky","€8,00"],["Don Julio","€9,00"]]],
+["🥤 Refrescos",[["Agua","€2,00"],["Coca-Cola","€3,00"],["Fanta","€3,00"],["Sprite","€3,00"],["Tónica","€3,00"],["Spa Rood","€3,00"],["Red Bull","€5,00"],["Jarra de limonada","€5,00"],["Electrolit","€6,00"]]],
+["🥟 Comida / Dulces",[["Bon Bon Bum","€1,00"],["Empanada individual","€4,00"],["Porción de empanadas","€15,00"]]],
+["🍾 Botellas",[["Caneca Ron Viejo de Caldas","€40,00"],["Caneca de aguardiente","€40,00"],["Aguardiente","€70,00"],["Aguardiente Amarillo","€80,00"],["Ron Viejo de Caldas 3 años · Ron colombiano 🇨🇴","€80,00"],["Ron Viejo de Caldas 5 años","€100,00"],["Ron Viejo de Caldas 15 años","€140,00"],["Old Parr","€140,00"],["Buchanan's","€140,00"],["Don Julio","€140,00"],["Gold Label","€130,00"],["Grey Goose","€130,00"],["Smirnoff","€80,00"],["Tequila José Cuervo","€80,00"]]]
+],
+nl:[
+["🍺 Bieren",[["Amstel","€4,00"],["Bud","€4,00"],["Corona","€5,50"],["Desperados","€5,50"],["Heineken fles","€4,50"],["Heineken van het vat","€4,00"],["Bierkan","€15,00"],["Biertoren","€40,00"],["Michelada","€6,00"],["Corona Bucket (5)","€25,00"],["Heineken Bucket (5)","€20,00"]]],
+["🍸 Cocktails",[["CaliSon · Specialiteit van het huis","€11,00","special"],["Amaretto Sour","€11,00"],["Gin Tonic","€12,00"],["Gin Tonic met aardbei","€12,00"],["Margarita Blue","€13,00"],["Pornstar Martini","€13,00"],["Michelada met mango","€12,00"],["Michelada met rode vruchten","€12,00"]]],
+["🥃 Mixdranken",[["Baileys","€10,00"],["Buchanan's","€15,00"],["Old Parr","€15,00"],["Black Label","€10,00"],["Malibu + frisdrank","€10,00"],["Ron Viejo de Caldas + cola/frisdrank","€12,00"],["Black Label + cola","€12,00"],["Red Label + cola","€10,00"],["Vodka + frisdrank","€12,00"],["Vodka + Red Bull","€15,00"]]],
+["🥃 Shots",[["Aguardiente","€4,50"],["Aguardiente Amarillo","€4,50"],["Tequila","€5,00"],["Shot Ron Viejo de Caldas","€6,00"],["Vodka","€6,00"],["Jenever","€6,00"],["Whisky","€8,00"],["Don Julio","€9,00"]]],
+["🥤 Frisdranken",[["Water","€2,00"],["Coca-Cola","€3,00"],["Fanta","€3,00"],["Sprite","€3,00"],["Tonic","€3,00"],["Spa Rood","€3,00"],["Red Bull","€5,00"],["Kan limonade","€5,00"],["Electrolit","€6,00"]]],
+["🥟 Eten / Snoep",[["Bon Bon Bum","€1,00"],["Empanada (per stuk)","€4,00"],["Portie empanadas","€15,00"]]],
+["🍾 Flessen",[["Caneca Ron Viejo de Caldas","€40,00"],["Caneca aguardiente","€40,00"],["Aguardiente","€70,00"],["Aguardiente Amarillo","€80,00"],["Ron Viejo de Caldas 3 jaar · Colombiaanse rum 🇨🇴","€80,00"],["Ron Viejo de Caldas 5 jaar","€100,00"],["Ron Viejo de Caldas 15 jaar","€140,00"],["Old Parr","€140,00"],["Buchanan's","€140,00"],["Don Julio","€140,00"],["Gold Label","€130,00"],["Grey Goose","€130,00"],["Smirnoff","€80,00"],["Tequila José Cuervo","€80,00"]]]
+]};
+function setLang(l){
+ document.documentElement.lang=l;
+ esBtn.classList.toggle('active',l==='es'); nlBtn.classList.toggle('active',l==='nl');
+ menu.innerHTML=data[l].map(([h,items])=>`<section class="card"><h2>${h}</h2>${items.map(([n,p,c])=>`<div class="item"><span class="${c||''}">${n}</span><span class="price">${p}</span></div>`).join('')}</section>`).join('');
+}
+setLang('es');
+</script></body></html>
